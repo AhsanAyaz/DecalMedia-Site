@@ -1,14 +1,18 @@
 <app-layout>
-  <img src="https://via.placeholder.com/350x150">
-  <form class="login-form">
-    <div class="form-group">
-      <label for="inputEmail" class="login-form-label">Email Address</label>
-      <input type="email" class="form-control" id="inputEmail" placeholder="me@domain.com">
+  <div class="landing-container">
+    <div class="row">
+      <div class="col-md-12">
+          <h2 class="text-white landing-header-text">Assign to tap</h2>
+          <h3 class="text-yellow landing-message-text">Enter tap code</h3>
+          <p class="text-white landing-p-text">Enter the code assigned to you tap <br> Find this by logging into<br> https://beercrawl.com.au/beers/</p>
+        <form class="landing-form">
+          <div class="form-group">
+            <input type="text" class="form-control landing-code-input" id="inputDeviceCode" placeholder="123456">
+          </div>
+          <button type="submit" class="btn btn-lg btn-assign-to-tap">Assign to tap</button>
+        </form>
+        <img src="https://via.placeholder.com/350x150" class="landing-logo-img">
+      </div>
     </div>
-    <div class="form-group">
-      <label for="inputPassword" class="login-form-label">Password</label>
-      <input type="password" class="form-control" id="inputPassword" placeholder="">
-    </div>
-    <button type="submit" class="btn btn-primary">Login</button>    
-  </form>
+  </div>
 </app-layout>
