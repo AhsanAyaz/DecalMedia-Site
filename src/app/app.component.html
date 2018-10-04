@@ -1,18 +1,25 @@
 <app-layout>
+<div *ngIf="landing" class="landing">
   <div class="landing-container">
     <div class="row">
       <div class="col-md-12">
-          <h2 class="text-white landing-header-text">Assign to tap</h2>
-          <h3 class="text-yellow landing-message-text">Enter tap code</h3>
-          <p class="text-white landing-p-text">Enter the code assigned to you tap <br> Find this by logging into<br> https://beercrawl.com.au/beers/</p>
-        <form class="landing-form">
-          <div class="form-group">
+            <h2 class="text-white landing-header-text">Assign to tap</h2>
+            <h3 class="text-yellow landing-message-text">Enter tap code</h3>
+            <p class="text-white landing-p-text">Enter the code assigned to you tap <br> Find this by logging into<br> https://beercrawl.com.au/beers/</p>
+          <form class="landing-form">
+            <div class="form-group">
                 <input #randomCode class="form-control landing-code-input" placeholder="123456">
                 <button (click)="getScreen(randomCode.value)" class="btn btn-lg btn-assign-to-tap">Assign</button>
-          </div>
-        </form>
-        <img src="./assets/decal-media.png" class="landing-logo-img">
+            </div>
+          </form>
+          <img src="./assets/decal-media.png" class="landing-logo-img">
+        </div>
       </div>
     </div>
   </div>
+  <div *ngIf="tap" class="tap">
+      <img src="https://beercrawl.crawlmedia.com.au/images/thumbnail/beer/1675/1675-colonial-brewing-aussie-ipa-1487067101.jpg" class="img-beer">
+      <h3 class="text-white">{{beers.beer_name}}</h3>
+      <h4 class="text-white">{{beers.brewery}}</h4>
+    </div>
 </app-layout>

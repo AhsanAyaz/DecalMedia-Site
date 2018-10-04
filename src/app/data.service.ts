@@ -7,12 +7,13 @@ import { HttpClient } from '@angular/common/http';
 export class DataService {
 
   apiUrl:string = "https://beercrawl.crawlmedia.com.au/api/v1";
+  //apiUrl:string = "http://beercrawl.local/api/v1";
   constructor(private httpClient : HttpClient) {
 
    }
 
    get_screen(tapCode) { 
-    return this.httpClient.get(this.apiUrl + '/ontap/22864')
+    return this.httpClient.get(this.apiUrl + '/ontap/' + tapCode)
    }
 }
 

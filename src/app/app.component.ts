@@ -12,18 +12,25 @@ import { Beer } from './beer';
 export class AppComponent {
   private beers : Beer[] = [];
   title = 'decalmedia-site';
-  tapCode = '';
+  landing = true;
+  tap = false;
 
-  getScreen(tapCode) {
-    this.dataService.get_screen(tapCode).subscribe((res : Beer[])=>{
-       this.beers = res;
-       console.log(res);
-    });
-  }
+   getScreen(tapCode) {
+     this.dataService.get_screen(tapCode).subscribe((res : Beer[])=>{
+       this.landing = false;
+       this.tap = true;
+        this.beers = res;
+        console.log(res);
+     });
+   }
 
   private beersObservable : Observable<Beer[]> ;
 
   constructor(private dataService: DataService) {
 
-  }
+    // this.dataService.get_screen(this.tapCode).subscribe((res : Beer[])=>{
+    //   this.beers = res;
+    //    console.log(res);
+    // });
+    }
 }

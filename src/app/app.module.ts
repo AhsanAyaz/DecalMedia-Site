@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { UiModule } from './ui/ui.module';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './data.service';
+import { FormsModule } from '@angular/forms';
 //import { RouterModule, Routes } from '@angular/router';
 
 //const appRoutes: Routes = [
@@ -17,7 +18,9 @@ import { DataService } from './data.service';
   imports: [
     BrowserModule,
     UiModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+
     //RouterModule.forRoot(
     //  appRoutes,
     //  { enableTracing: true }
