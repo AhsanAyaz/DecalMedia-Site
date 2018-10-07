@@ -16,5 +16,3 @@ export class DataService {
     return this.httpClient.get(this.apiUrl + '/ontap/' + tapCode)
    }
 }
-
-

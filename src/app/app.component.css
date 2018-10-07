@@ -66,3 +66,39 @@
     width: 100%;
     height: 40%;
 }
+
+.text-error {
+    color: red;
+}
+
+.beer-name {
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.beer-size-name {
+    color:  #e69d01;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.beer-size-volume {
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.beer-size-price {
+    color: #e69d01;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.beer-size-std {
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.beer-size-std-drinks {
+    color: #ffffff;
+    font-size: 18px;
+}

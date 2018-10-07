@@ -20,11 +20,6 @@ import { FormsModule } from '@angular/forms';
     UiModule,
     HttpClientModule,
     FormsModule,
-
-    //RouterModule.forRoot(
-    //  appRoutes,
-    //  { enableTracing: true }
-    //)
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
