@@ -3,6 +3,7 @@ export class Beer {
     beer_name: string;
     img: string;
     brewery: string;
+    status: string;
     constructor () {
     }
 }

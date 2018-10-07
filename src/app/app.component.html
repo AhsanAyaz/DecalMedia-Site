@@ -1,5 +1,5 @@
 <app-layout>
-<div *ngIf="beers.status != 'OK'" class="landing">
+<div *ngIf="beers['status'] != 'OK'" class="landing">
   <div class="landing-container">
     <div class="row">
       <div class="col-md-12">
@@ -10,7 +10,7 @@
             <div class="form-group">
                 <input #randomCode class="form-control landing-code-input" placeholder="123456" required>
                 <button (click)="getScreen(randomCode.value)" class="btn btn-lg btn-assign-to-tap">Assign</button>
-                <div *ngIf="beers.status == 'ERROR'">
+                <div *ngIf="beers['status'] == 'ERROR'">
                   <p class="text-error">Invalid code, please try again.</p>
                 </div>
             </div>
@@ -20,7 +20,7 @@
       </div>
     </div>
   </div>
-    <div *ngIf="beers.status == 'OK'" class="tap">
+    <div *ngIf="beers['status'] == 'OK'" class="tap">
         <img src={{beers.items.img}} class="img-beer">
         <div class="container">
         <h3 class="beer-name text-white">{{beers.items.beer_name}}</h3>

@@ -11,7 +11,7 @@ import { Beer } from './beer';
 })
 
 export class AppComponent {
-  private beers : Beer[] = [];
+  beers : Beer[] = [];
   title = 'decalmedia-site';
   landing = true;
   tap = false;
