@@ -1,10 +1,15 @@
+
+* {
+    font-family: 'Raleway', sans-serif !important;
+}
+
 .landing-container {
-    margin-top: 15%;
+    margin-top: 30%;
 }
 
 .landing-form{
-    padding-left: 30%; 
-    padding-right: 30%;
+    padding-left: 15%; 
+    padding-right: 15%;
     text-align: center;    
 }
 
@@ -26,6 +31,7 @@
     width: 100%;
     font-size: 20px;
     color: #ffffff;
+    margin-bottom: 30px;
 }
 
 .btn-assign-to-tap {
@@ -33,7 +39,8 @@
     width: 100%;
     height: 80px;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: bold;
+    font-weight: 800;
 }
 
 .text-white {
@@ -47,19 +54,22 @@
 .landing-header-text {
     text-align: center;
     text-transform: uppercase;
-    font-size: 38px;
+    font-size: 32px;
     margin-bottom: 1px;
+    font-weight: bold;
 }
 
 .landing-message-text {
     text-align: center;
     text-transform: capitalize;
-    font-size: 32px;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .landing-p-text {
     text-align: center;
-    font-size: 18px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .img-beer {

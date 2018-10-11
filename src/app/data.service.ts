@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
-
+  //apiUrl:string = "https://beercrawl.com.au/api/v1";
   apiUrl:string = "https://beercrawl.crawlmedia.com.au/api/v1";
   //apiUrl:string = "http://beercrawl.local/api/v1";
   constructor(private httpClient : HttpClient) {

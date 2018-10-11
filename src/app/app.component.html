@@ -5,11 +5,11 @@
       <div class="col-md-12">
             <h2 class="text-white landing-header-text">Assign to tap</h2>
             <h3 class="text-yellow landing-message-text">Enter tap code</h3>
-            <p class="text-white landing-p-text">Enter the code assigned to you tap <br> Find this by logging into<br> https://beercrawl.com.au/beers/</p>
+            <p class="text-white landing-p-text">Enter the code assigned to you tap <br> Find this by logging into<br> https://beercrawl.com.au/auth/venue-login<br>Select 'beers' tab then 'Beer on Tap'.</p>
           <form class="landing-form">
             <div class="form-group">
-                <input #randomCode class="form-control landing-code-input" placeholder="123456" required>
-                <button (click)="getScreen(randomCode.value)" class="btn btn-lg btn-assign-to-tap">Assign</button>
+                <input #randomCode class="form-control landing-code-input" placeholder="00000000" required>
+                <button (click)="getScreen(randomCode.value)" class="btn btn-lg btn-assign-to-tap">assign to tap</button>
                 <div *ngIf="beers['status'] == 'ERROR'">
                   <p class="text-error">Invalid code, please try again.</p>
                 </div>
