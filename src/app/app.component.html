@@ -24,14 +24,14 @@
         <img src={{beers.items.img}} class="img-beer">
         <div class="container">
         <h3 class="beer-name text-white">{{beers.items.beer_name}}</h3>
-        <h4 class="text-white">{{beers.items.brewery}}</h4>
-        <h4 class="text-white">{{beers.items.style}} - {{beers.items.abv}}% - {{beers.items.ibu}}IBU</h4>
+        <h4 class="text-white beer-brewery">{{beers.items.brewery}}</h4>
+        <h4 class="text-white beer-style">{{beers.items.style}} - {{beers.items.abv}}%</h4>
         <div class="beer-sizes" *ngFor="let size of beers.items.sizes">
-          <span class="beer-size-name">{{size.name}}: </span>
-          <span class="beer-size-volume">{{size.volume*1000}}ml </span>
-          <span class="beer-size-price">{{size.price}} </span>
-          <span class="beer-size-std">{{this.Math.round((size.volume * beers.items.abv * 0.789) * 100) / 100}} </span>
-          <span class="beer-size-std-drinks">std drinks</span>
+            <span class="beer-size-name">{{size.name}}: </span>
+            <span class="beer-size-volume"> {{size.volume*1000}}ml </span>
+            <span class="beer-size-price"> {{size.price}} </span>
+            <span class="beer-size-std"> {{this.Math.round((size.volume * beers.items.abv * 0.789) * 100) / 100}} </span>
+            <span class="beer-size-std-drinks"> std drinks</span>
         </div>
     </div>
   </div>
