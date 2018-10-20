@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-
+import { Component} from '@angular/core';
+import { concatMap, map, tap } from 'rxjs/operators';
+import { Observable, concat, timer } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { DataService } from './data.service';
+
 import { Beer } from './beer';
 
 @Component({
@@ -11,6 +13,7 @@ import { Beer } from './beer';
 })
 
 export class AppComponent {
+  polledBeers: Observable<Beer>;
   beers : Beer[] = [];
   title = 'decalmedia-site';
   landing = true;
@@ -18,16 +21,20 @@ export class AppComponent {
   url:string;
   Math: any;
 
-   getScreen(tapCode) {
-     this.dataService.get_screen(tapCode).subscribe((res : Beer[])=>{
-       this.landing = false;
-       this.beers = res;
-       this.Math = Math;
-     });
-   }
+  getScreen(tapCode) {
+    const beers$: Observable<any> = this.dataService.get_screen(tapCode)
+      .pipe(tap( () => {
+        this.landing = false; 
+        this.Math = Math
+      }
+    ));
 
-  private beersObservable : Observable<Beer[]> ;
-
+    const polledBeers$ = timer(0, 1000)
+    .pipe(( () => beers$))
+    console.log(this.polledBeers);
+    console.log(beers$);
+  }
+  
   constructor(private dataService: DataService) {
 
     }
