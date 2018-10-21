@@ -1,18 +1,19 @@
 <app-layout>
-<div *ngIf="beers['status'] != 'OK'" class="landing">
-  <div class="landing-container">
-    <div class="row">
-      <div class="col-md-12">
-            <h2 class="text-white landing-header-text">Assign to tap</h2>
-            <h3 class="text-yellow landing-message-text">Enter tap code</h3>
-            <p class="text-white landing-p-text">Enter the code assigned to you tap <br> Find this by logging into<br> https://beercrawl.com.au/auth/venue-login<br>Select 'beers' tab then 'Beer on Tap'.</p>
+  <div *ngIf="callResp != 'OK'" class="landing">
+    <div class="landing-container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="text-white landing-header-text">Assign to tap</h2>
+          <h3 class="text-yellow landing-message-text">Enter tap code</h3>
+          <p class="text-white landing-p-text">Enter the code assigned to you tap <br> Find this by logging into<br>
+            https://beercrawl.com.au/auth/venue-login<br>Select 'beers' tab then 'Beer on Tap'.</p>
           <form class="landing-form">
             <div class="form-group">
-                <input #randomCode class="form-control landing-code-input" placeholder="00000000" required>
-                <button (click)="getScreen(randomCode.value)" class="btn btn-lg btn-assign-to-tap">assign to tap</button>
-                <div *ngIf="beers['status'] == 'ERROR'">
-                  <p class="text-error">Invalid code, please try again.</p>
-                </div>
+              <input #randomCode class="form-control landing-code-input" placeholder="00000000" required>
+              <button (click)="getScreen(randomCode.value)" class="btn btn-lg btn-assign-to-tap">assign to tap</button>
+              <div *ngIf="callResp === 'ERROR'">
+                <p class="text-error">Invalid code, please try again.</p>
+              </div>
             </div>
           </form>
           <img src="./assets/decal-media.png" class="landing-logo-img">
@@ -20,19 +21,19 @@
       </div>
     </div>
   </div>
-    <div *ngIf="beers['status'] == 'OK'" class="tap">
-        <img src={{beers.items.img}} class="img-beer">
-        <div class="container">
-        <h3 class="beer-name text-white">{{(polledBeers$ | async).item_name}}</h3>
-        <h4 class="text-white beer-brewery">{{beers.items.brewery}}</h4>
-        <h4 class="text-white beer-style">{{beers.items.style}} - {{beers.items.abv}}%</h4>
-        <div class="beer-sizes" *ngFor="let size of beers.items.sizes">
-            <span class="beer-size-name">{{size.name}}: </span>
-            <span class="beer-size-volume"> {{size.volume*1000}}ml </span>
-            <span class="beer-size-price"> {{size.price}} </span>
-            <span class="beer-size-std"> {{this.Math.round((size.volume * beers.items.abv * 0.789) * 100) / 100}} </span>
-            <span class="beer-size-std-drinks"> std drinks</span>
-        </div>
+  <div *ngIf="callResp === 'OK'" class="tap">
+    <img src={{polledBeers.img}} class="img-beer">
+    <div class="container">
+      <h3 class="beer-name text-white">{{polledBeers.beer_name}}</h3>
+      <h4 class="text-white beer-brewery">{{polledBeers.brewery}}</h4>
+      <h4 class="text-white beer-style">{{polledBeers.style}} - {{polledBeers.abv}}%</h4>
+      <div class="beer-sizes" *ngFor="let size of polledBeers.sizes">
+        <span class="beer-size-name">{{size.name}}: </span>
+        <span class="beer-size-volume"> {{size.volume*1000}}ml </span>
+        <span class="beer-size-price"> {{size.price}} </span>
+        <span class="beer-size-std"> {{getSizeStd(size)}} </span>
+        <span class="beer-size-std-drinks"> std drinks</span>
+      </div>
     </div>
   </div>
 </app-layout>

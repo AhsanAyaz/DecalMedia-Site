@@ -1,11 +1,9 @@
-import { Component} from '@angular/core';
-import { concatMap, map, tap } from 'rxjs/operators';
-import { Observable, concat, timer } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { mergeMap } from 'rxjs/operators';
+import { timer } from 'rxjs';
 import { DataService } from './data.service';
 
 import { Beer } from './beer';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,29 +11,28 @@ import { Beer } from './beer';
 })
 
 export class AppComponent {
-  polledBeers: Observable<Beer>;
-  beers : Beer[] = [];
+  polledBeers: Beer;
+  callResp: string;
   title = 'decalmedia-site';
   landing = true;
   tap = false;
-  url:string;
+  url: string;
   Math: any;
 
-  getScreen(tapCode) {
-    const beers$: Observable<any> = this.dataService.get_screen(tapCode)
-      .pipe(tap( () => {
-        this.landing = false; 
-        this.Math = Math
-      }
-    ));
-
-    const polledBeers$ = timer(0, 1000)
-    .pipe(( () => beers$))
-    console.log(this.polledBeers);
-    console.log(beers$);
+  getSizeStd(size) {
+    return Math.round((size.volume * +this.polledBeers.abv * 0.789) * 100) / 100;
   }
-  
-  constructor(private dataService: DataService) {
 
-    }
+  getScreen(tapCode) {
+    timer(0, 1000)
+      .pipe(mergeMap(() => this.dataService.get_screen(tapCode)))
+      .subscribe(beersResp => {
+        this.callResp = beersResp.status;
+        this.polledBeers = beersResp.items;
+        this.landing = false;
+      });
+  }
+
+  constructor(private dataService: DataService) {
+  }
 }
